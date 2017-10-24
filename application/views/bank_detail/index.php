@@ -14,7 +14,7 @@
 						<th>Ifsc</th>
 						<th>Account Number</th>
 						<th>Pan Number</th>
-						<th>Actions</th>
+						<!--<th>Actions</th>-->
                     </tr>
                     <?php foreach($bank_details as $b){ ?>
                     <tr>
@@ -25,10 +25,10 @@
 						<td><?php echo $b['ifsc']; ?></td>
 						<td><?php echo $b['account_number']; ?></td>
 						<td><?php echo $b['pan_number']; ?></td>
-						<td>
+						<!--<td>
                             <a href="<?php echo site_url('bank_detail/edit/'.$b['bank_id']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> 
                             <a href="<?php echo site_url('bank_detail/remove/'.$b['bank_id']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
-                        </td>
+                        </td>-->
                     </tr>
                     <?php } ?>
                 </table>

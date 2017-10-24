@@ -22,10 +22,10 @@ class My_plan_model extends CI_Model
     /*
      * Get all my_plans
      */
-    function get_all_my_plans()
+    function get_all_my_plans($company_id)
     {
-        $this->db->order_by('plan_reg_id', 'desc');
-        return $this->db->get('my_plans')->result_array();
+        $this->db->order_by('timestamp', 'desc');
+        return $this->db->get_where('my_plans',array('company_id'=>$company_id))->result_array();
     }
         
     /*

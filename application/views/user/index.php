@@ -15,10 +15,10 @@
 						<th>Address</th>
 						<th>Degree</th>
 						<th>Status</th>
-						<th>Google Id</th>
+						<!--<th>Google Id</th>-->
 						<th>College</th>
 						<th>Cv</th>
-						<th>Actions</th>
+						<!--<th>Actions</th>-->
                     </tr>
                     <?php foreach($user as $u){ ?>
                     <tr>
@@ -30,13 +30,13 @@
 						<td><?php echo $u['address']; ?></td>
 						<td><?php echo $u['degree']; ?></td>
 						<td><?php echo $u['status']; ?></td>
-						<td><?php echo $u['google_id']; ?></td>
+						<!--<td><?php echo $u['google_id']; ?></td>-->
 						<td><?php echo $u['college']; ?></td>
 						<td><?php echo $u['cv']; ?></td>
-						<td>
+						<!--<td>
                             <a href="<?php echo site_url('user/edit/'.$u['user_id']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> 
                             <a href="<?php echo site_url('user/remove/'.$u['user_id']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
-                        </td>
+                        </td>-->
                     </tr>
                     <?php } ?>
                 </table>

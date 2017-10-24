@@ -16,9 +16,87 @@ class My_plan extends CI_Controller{
      */
     function index()
     {
-        $data['my_plans'] = $this->My_plan_model->get_all_my_plans();
+        $data['my_plans'] = $this->My_plan_model->get_all_my_plans($_SESSION['company_id']);
         
         $data['_view'] = 'my_plan/index';
         $this->load->view('layouts/main',$data);
     }
+
+    /*
+     * Adding a new my_plan
+     */
+    function add()
+    {   
+        if(isset($_POST) && count($_POST) > 0)     
+        {   
+            $params = array(
+				'plan_id' => $this->input->post('plan_id'),
+				'user_id' => $this->input->post('user_id'),
+				'status' => $this->input->post('status'),
+				'timestamp' => $this->input->post('timestamp'),
+				'amount' => $this->input->post('amount'),
+				'company_id' => $this->input->post('company_id'),
+            );
+            
+            $my_plan_id = $this->My_plan_model->add_my_plan($params);
+            redirect('my_plan/index');
+        }
+        else
+        {            
+            $data['_view'] = 'my_plan/add';
+            $this->load->view('layouts/main',$data);
+        }
+    }  
+
+    /*
+     * Editing a my_plan
+     */
+    function edit($plan_reg_id)
+    {   
+        // check if the my_plan exists before trying to edit it
+        $data['my_plan'] = $this->My_plan_model->get_my_plan($plan_reg_id);
+        
+        if(isset($data['my_plan']['plan_reg_id']))
+        {
+            if(isset($_POST) && count($_POST) > 0)     
+            {   
+                $params = array(
+					'plan_id' => $this->input->post('plan_id'),
+					'user_id' => $this->input->post('user_id'),
+					'status' => $this->input->post('status'),
+					'timestamp' => $this->input->post('timestamp'),
+					'amount' => $this->input->post('amount'),
+					'company_id' => $this->input->post('company_id'),
+                );
+
+                $this->My_plan_model->update_my_plan($plan_reg_id,$params);            
+                redirect('my_plan/index');
+            }
+            else
+            {
+                $data['_view'] = 'my_plan/edit';
+                $this->load->view('layouts/main',$data);
+            }
+        }
+        else
+            show_error('The Deal you are trying to edit does not exist.');
+    } 
+
+    /*
+     * Deleting my_plan
+     */
+    function remove($plan_reg_id)
+    {
+        $my_plan = $this->My_plan_model->get_my_plan($plan_reg_id);
+
+        // check if the my_plan exists before trying to delete it
+        if(isset($my_plan['plan_reg_id']))
+        {
+            $this->My_plan_model->delete_my_plan($plan_reg_id);
+            redirect('my_plan/index');
+        }
+        else
+            show_error('The my_plan you are trying to delete does not exist.');
+    }
+    
 }
