@@ -23,10 +23,7 @@
 						<td><?php echo $r['timestamp']; ?></td>
 						<td><?php echo $r['message']; ?></td>
 						<td><?php echo $r['name']; ?></td>
-						<td>
-                            <a href="<?php echo site_url('review/edit/'.$r['review_id']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Edit</a> 
-                            <a href="<?php echo site_url('review/remove/'.$r['review_id']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Delete</a>
-                        </td>
+						
                     </tr>
                     <?php } ?>
                 </table>

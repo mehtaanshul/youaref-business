@@ -36,13 +36,13 @@
 						<div class="form-group">
 							<input type="text" name="timestamp" value="<?php echo $this->input->post('timestamp'); ?>" class="form-control" id="timestamp" />
 						</div>
-					</div>-->
+					</div>
 					<div class="col-md-6">
 						<label for="expiry_date" class="control-label">Expiry Date</label>
 						<div class="form-group">
 							<input type="text" name="expiry_date" value="<?php echo $this->input->post('expiry_date'); ?>" class="has-datepicker form-control" id="expiry_date" />
 						</div>
-					</div>
+					</div>-->
 					<div class="col-md-6">
 						<label for="conversion" class="control-label">Conversion</label>
 						<div class="form-group">

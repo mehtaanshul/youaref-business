@@ -15,8 +15,6 @@
 						<th>Price Of Product</th>
 						<th>Difficulty</th>
 						<th>Name</th>
-						<th>Timestamp</th>
-						<th>Expiry Date</th>
 						<th>Conversion</th>
 						<th>Earn Per Conversion</th>
 						<th>Training Kit</th>
@@ -30,8 +28,6 @@
 						<td><?php echo $p['price_of_product']; ?></td>
 						<td><?php echo $p['difficulty']; ?></td>
 						<td><?php echo $p['name']; ?></td>
-						<td><?php echo $p['timestamp']; ?></td>
-						<td><?php echo $p['expiry_date']; ?></td>
 						<td><?php echo $p['conversion']; ?></td>
 						<td><?php echo $p['earn_per_conversion']; ?></td>
 						<td><?php echo $p['training_kit']; ?></td>

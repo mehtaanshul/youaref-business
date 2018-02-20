@@ -22,10 +22,10 @@ class Review_model extends CI_Model
     /*
      * Get all reviews
      */
-    function get_all_reviews()
+    function get_all_reviews($company_id)
     {
         $this->db->order_by('review_id', 'desc');
-        return $this->db->get('reviews')->result_array();
+        return $this->db->query("SELECT reviews.* FROM reviews LEFT JOIN plans ON reviews.plan_id=plans.plan_id WHERE plans.company_id=$company_id" )->result_array();
     }
         
     /*

@@ -3,7 +3,7 @@ session_start();
 $empty = false;
 $wrong = false;
 error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE);
-$conn = new mysqli('localhost', 'root', '', 'youaref');
+$conn = new mysqli('localhost', 'youarefc_piyush', 'despacito', 'youarefc_main');
 if(isset($_SESSION['login']) && $_SESSION['login'] == true){
 }
 else {
@@ -29,7 +29,7 @@ if(isset($_POST['email'])){
 
             $_SESSION['login'] = "true";
             $_SESSION['company_id'] = $company_email;
-            $url = "http://localhost/business/index.php";
+            $url = "http://www.youaref.biz/index.php";
             ob_start();
             header('Location: '.$url);
             ob_end_flush();
@@ -38,7 +38,6 @@ if(isset($_POST['email'])){
             die("should have redirected by now");
         }
         else{
-            echo "wrong";
             $wrong = true;
         }
     }
@@ -56,132 +55,65 @@ $conn->close();
 ?>
 
 <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css">
-<div class="container">    
-    <div id="loginbox" style="margin-top:50px;" class="col-xs-12 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
-        <div class="panel panel-info" >
-            <div class="panel-heading">
-                <div class="panel-title">Sign In</div>
-                <!-- <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div> -->
-            </div>     
 
-            <div style="padding-top:30px" class="panel-body" >
+<Style>
+.wrapper {    
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
 
-                <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-                <div <?php ?> class="well">
-                    <?php 
-                    if($wrong== true){
-                        echo "You entered wrong credentials";
-                    }
-                    ?>
-                </div>                            
-                <form id="loginform" class="form-horizontal" role="form"  method="POST">
+.form-signin {
+  max-width: 420px;
+  padding: 30px 38px 66px;
+  margin: 0 auto;
+  background-color: #eee;
+  border: 3px dotted rgba(0,0,0,0.1);  
+  }
 
-                    <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="email" type="text" name="email" class="form-control" required="" placeholder="email">                                        
-                    </div>
+.form-signin-heading {
+  text-align:center;
+  margin-bottom: 30px;
+}
 
-                    <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="pass" required="" type="text" class="form-control" name="pass" placeholder="password">
-                    </div>
+.form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+}
 
+input[type="text"] {
+  margin-bottom: 0px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
 
+input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
 
-                    <div class="input-group">
-                      <div class="checkbox">
-                        <label>
-                          <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                      </label>
-                  </div>
-              </div>
+.colorgraph {
+  height: 7px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+</Style>
 
-
-              <div style="margin-top:10px" class="form-group">
-                <!-- Button -->
-
-                <div class="col-sm-12 controls">
-                  <!-- <a id="btn-login" href="#" class="btn btn-success">Login  </a> -->
-                  <input  class="btn btn-success" type="submit" name="" value="Login">
-              </div>
-          </div>
-      </form>     
-  </div>                     
-</div>  
-</div>
-<div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <div class="panel-title">Sign Up</div>
-            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
-        </div>  
-        <div class="panel-body" >
-            <form id="signupform" class="form-horizontal" role="form">
-
-                <div id="signupalert" style="display:none" class="alert alert-danger">
-                    <p>Error:</p>
-                    <span></span>
-                </div>
-
-
-
-                <div class="form-group">
-                    <label for="email" class="col-md-3 control-label">Email</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" name="email" placeholder="Email Address">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="firstname" class="col-md-3 control-label">First Name</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" name="firstname" placeholder="First Name">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="lastname" class="col-md-3 control-label">Last Name</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" name="lastname" placeholder="Last Name">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="password" class="col-md-3 control-label">Password</label>
-                    <div class="col-md-9">
-                        <input type="password" class="form-control" name="passwd" placeholder="Password">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="icode" class="col-md-3 control-label">Invitation Code</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" name="icode" placeholder="">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <!-- Button -->                                        
-                    <div class="col-md-offset-3 col-md-9">
-                        <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
-                        <span style="margin-left:8px;">or</span>  
-                    </div>
-                </div>
-
-                <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
-
-                    <div class="col-md-offset-3 col-md-9">
-                        <!-- <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Sign Up with Facebook</button> -->
-                    </div>                                           
-
-                </div>
-
-
-
-            </form>
-        </div>
+<div class = "container">
+    <div class="wrapper">
+        <form action="" method="post" name="Login_Form" class="form-signin" style="background-color: #fad30a">       
+              <img src="resources/img/YOUAREF.png" alt="You are F" style="width:130px; height:130px; display:block; margin:auto; margin-bottom:20px">
+              <input type="text" class="form-control" id="email" name="email" placeholder="Company Id" required="" autofocus="" />
+              <input type="password" class="form-control" id="pass" name="pass" placeholder="Password" required=""/>            
+             
+              <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit" style="background-color:black">Login</button>            
+        </form>         
     </div>
-
-
-
-
-</div> 
 </div>

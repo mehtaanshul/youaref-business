@@ -16,7 +16,7 @@ class User extends CI_Controller{
      */
     function index()
     {
-        $data['user'] = $this->User_model->get_all_user();
+        $data['user'] = $this->User_model->get_all_user($_SESSION['company_id']);
         
         $data['_view'] = 'user/index';
         $this->load->view('layouts/main',$data);

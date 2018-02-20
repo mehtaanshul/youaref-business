@@ -3,7 +3,7 @@
         <div class="box">
             <div class="box-header">
                 <h3 class="box-title">
-                Please navigate to the appropriate page.
+                Welcome, Please navigate to the appropriate page.
                 </h3>
             </div>
         </div>

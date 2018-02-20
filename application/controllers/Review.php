@@ -16,7 +16,7 @@ class Review extends CI_Controller{
      */
     function index()
     {
-        $data['reviews'] = $this->Review_model->get_all_reviews();
+        $data['reviews'] = $this->Review_model->get_all_reviews($_SESSION['company_id']);
         
         $data['_view'] = 'review/index';
         $this->load->view('layouts/main',$data);

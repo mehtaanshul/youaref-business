@@ -13,11 +13,11 @@
 						<th>Email</th>
 						<th>Phone</th>
 						<th>Address</th>
-						<th>Degree</th>
+						<th>About User</th>
 						<th>Status</th>
 						<!--<th>Google Id</th>-->
-						<th>College</th>
-						<th>Cv</th>
+						<th>Social Outreach</th>
+						<th>Why Youaref</th>
 						<!--<th>Actions</th>-->
                     </tr>
                     <?php foreach($user as $u){ ?>
